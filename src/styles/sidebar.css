@@ -1,0 +1,5 @@
+.sidebar { background: #121212; color: #FFD700; padding: 1rem; } /* Dark base, yellow accents */
+.card { border: 1px solid #00308F; margin: 0.5rem 0; } /* Presidential blue borders */
+.error { color: red; }
+.released { color: green; }
+.not-released { color: red; }

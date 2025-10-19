@@ -1,0 +1,73 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.16",
+  "version": "1.0.0",
+  "id": "20d7f470-e347-48c8-844e-207b49b54f96",
+  "packageName": "com.truerun.outlooksidebar",
+  "name": {
+    "short": "TrueRun.AI Sidebar",
+    "full": "TrueRun.AI Container Tracker Sidebar"
+  },
+  "description": {
+    "short": "Prevents dry runs by parsing emails for container status.",
+    "full": "Integrates with Outlook to parse emails, check container status, and prevent dry runs with proactive alerts."
+  },
+  "developer": {
+    "name": "TrueRun.AI",
+    "websiteUrl": "https://truerun.ai",
+    "privacyUrl": "https://truerun.ai/privacy",
+    "termsOfUseUrl": "https://truerun.ai/terms"
+  },
+  "icons": {
+    "outline": "assets/icon-32.png",
+    "color": "assets/icon-96.png"
+  },
+  "accentColor": "#00308F",
+  "composeExtensions": [
+    {
+      "botId": "20d7f470-e347-48c8-844e-207b49b54f96",
+      "commands": [
+        {
+          "id": "showSidebar",
+          "type": "action",
+          "title": "Show Sidebar",
+          "description": "Open TrueRun.AI sidebar for container tracking.",
+          "initialRun": true,
+          "fetchTask": false,
+          "context": ["compose"],
+          "parameters": [
+            {
+              "name": "containerQuery",
+              "title": "Container Query",
+              "description": "Enter container number or pull order",
+              "inputType": "text"
+            }
+          ]
+        }
+      ],
+      "messageHandlers": [
+        {
+          "type": "link",
+          "value": {
+            "domains": ["*.truerun.ai"]
+          }
+        }
+      ]
+    }
+  ],
+  "authorization": {
+    "permissions": {
+      "resourceSpecific": [
+        {
+          "name": "Mailbox.ReadWrite.User",
+          "type": "Delegated"
+        }
+      ]
+    }
+  },
+  "validDomains": [
+    "*.github.io",
+    "login.microsoftonline.com",
+    "*.truerun.ai"
+  ]
+}
