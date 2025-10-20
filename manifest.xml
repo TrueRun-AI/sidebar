@@ -80,11 +80,11 @@
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="groupLabel" DefaultValue="TrueRun.AI" />
+        <bt:String id="paneButtonLabel" DefaultValue="Open Sidebar" />
         <bt:String id="paneButtonTitle" DefaultValue="Show Sidebar" />
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="paneButtonLabel" DefaultValue="Open TrueRun.AI Sidebar" />
-        <bt:String id="paneButtonDesc" DefaultValue="Open sidebar for container tracking." />
+        <bt:String id="paneButtonDesc" DefaultValue="Open TrueRun.AI sidebar for container tracking." />
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
