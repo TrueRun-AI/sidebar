@@ -19,8 +19,8 @@
     "termsOfUseUrl": "https://truerun.ai/terms"
   },
   "icons": {
-    "outline": "assets/icon-32.png",
-    "color": "assets/icon-96.png"
+    "outline": "https://truerun-ai.github.io/sidebar/icon-32.png",
+    "color": "https://truerun-ai.github.io/sidebar/icon-80.png"
   },
   "accentColor": "#00308F",
   "composeExtensions": [
@@ -55,6 +55,10 @@
       ]
     }
   ],
+  "webApplicationInfo": {
+    "id": "20d7f470-e347-48c8-844e-207b49b54f96",
+    "resource": "api://truerun.ai/20d7f470-e347-48c8-844e-207b49b54f96"
+  },
   "authorization": {
     "permissions": {
       "resourceSpecific": [
@@ -66,8 +70,7 @@
     }
   },
   "validDomains": [
-    "*.github.io",
-    "login.microsoftonline.com",
-    "*.truerun.ai"
+    "truerun-ai.github.io",
+    "login.microsoftonline.com"
   ]
 }
