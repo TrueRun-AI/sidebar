@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dry Run/Attachment/Novel Warning</title>
+  <style>
+    body { background: #121212; color: #d9d9d9; font-family: Arial; padding: 20px; }
+    h2 { color: #FFD700; }
+    button { background: #00308F; color: white; padding: 10px; margin: 10px; border: none; cursor: pointer; }
+    .warning { color: #FFD700; }
+    .billing { font-size: 0.9em; color: #FFD700; }
+  </style>
+</head>
+<body>
+  <h2 id="title">Unreleased Containers Detected!</h2>
+  <p class="warning" id="message">The following containers are not released: <span id="containers"></span></p>
+  <p id="action">Proceeding may cause a dry run ($500 loss). Confirm to send anyway?</p>
+  <p class="billing" id="billing">Note: Adding containers triggers billed API calls—plan accordingly.</p>
+  <button onclick="confirmAction()">Confirm</button>
+  <button onclick="cancelAction()">Cancel</button>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get('type') || 'prevention';
+    const conts = JSON.parse(params.get('containers') || '[]');
+    document.getElementById('containers').textContent = conts.join(', ');
+    if (type === 'attachment') {
+      document.getElementById('title').textContent = 'Containers Detected in Attachment';
+      document.getElementById('message').textContent = `Detected in ${params.get('attachment')} from email "${params.get('email')}"—add to dashboard?`;
+      document.getElementById('action').textContent = '';
+    } else if (type === 'novel') {
+      document.getElementById('title').textContent = 'Novel Containers Detected';
+      document.getElementById('message').textContent = `These containers are new—add to dashboard? ${conts.join(', ')}`;
+      document.getElementById('action').textContent = '';
+    } else {
+      document.getElementById('billing').style.display = 'none'; // Hide billing for prevention
+    }
+    function confirmAction() { Office.context.ui.messageParent('confirmed'); }
+    function cancelAction() { Office.context.ui.messageParent('canceled'); }
+  </script>
+</body>
+</html>
